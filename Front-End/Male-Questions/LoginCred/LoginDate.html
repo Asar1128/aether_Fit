@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MagicPill</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-logo">   <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+    AetherFit
+  </a>
+    <div class="nav-language">
+      <button class="btn-lang btn-link text-primary d-none"> English </button>
+      <div class="btn-nav btn-link">
+        <input type="checkbox" id="side-nav-btn"/>
+        <div class="side-bar-navigation" >
+          <ul class="navigation">
+            <li> <a href="" class="text-primary" >Support</a> </li>
+            <li> <a href="" class="text-primary" >About Us</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+<!-- End Header --> 
+<!-- Question Body -->
+<section class="choose-body-fat-section text-primary custom-spacing">
+  <div class="body-content" >
+   
+    <div class="heading text-primary"> Let's create your account </div>
+  <form action="/dobRoute" method="POST">
+    <div class="input-field">
+      <label>What's your date of birth?</label>
+      <input type="hidden" name="userId" id="userId" />
+      <input type="text" placeholder="yyyy / MM / DD" maxlength="10" name="dob" id="input-el" style="font-size: 16px; color: rgb(109, 109, 109); font-family: Arial, Helvetica, sans-serif;"/>
+      <p id="p-tage" style="color: red;">Minimum age is 16</p>
+    </div>
+    <div class="text-right">
+      <button class="theme-btn  text-primary" disabled ="Continue" type="submit"> Continue
+      <div class="right-arrow"></div>
+      </button>
+  </form>
+    </div>
+  </div>
+</section>
+
+
+<script>
+
+  
+
+const btn = document.querySelector('.theme-btn');
+const pError = document.getElementById('p-tage');
+
+
+const InputEl = document.getElementById('input-el');
+
+
+InputEl.addEventListener('input', () => {
+      btn.disabled = InputEl.value === ""; 
+    });
+  
+  // Searching id in the search bar
+const urlParams = new URLSearchParams(window.location.search);
+const userId = urlParams.get('user_Id');
+document.getElementById('userId').value = userId
+console.log(userId)
+
+
+  InputEl.addEventListener('input', function () {
+      let value = InputEl.value.replace(/\D/g, ''); 
+  
+      if (value.length > 4) {
+          value = value.slice(0, 4) + '/' + value.slice(4);
+      }
+  
+      if (value.length > 7) {
+          value = value.slice(0, 7) + '/' + value.slice(7, 10);
+      }
+  
+      InputEl.value = value; 
+      if (value.length === 10) {
+          let [year, month, day] = value.split('/').map(Number);
+          let currentDate = new Date();
+          let enterDate = new Date(year, month - 1, day);
+          let minDate = new Date();
+          minDate.setFullYear(minDate.getFullYear() - 16);
+  
+          if (isNaN(enterDate) || enterDate > currentDate || enterDate > minDate) {
+              btn.disabled = true;
+              pError.textContent = "Age must be 16 or older";
+          } else {
+              btn.disabled = false;
+              pError.textContent = "";
+          }
+      } else {
+          btn.disabled = true;
+          pError.textContent = "Date format: YYYY/MM/DD";
+      }
+  });
+  
+  btn.addEventListener("click", function () {
+      window.location.href = "LoginName.html";
+  });
+  </script>
+  
+<!-- Question Body -->
+</body>
+</html>

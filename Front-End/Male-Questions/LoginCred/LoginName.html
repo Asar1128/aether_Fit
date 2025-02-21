@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MagicPill</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-logo">
+      <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+        AetherFit
+      </a>
+      <div class="nav-language">
+        <button class="btn-lang btn-link text-primary d-none"> English </button>
+        <div class="btn-nav btn-link">
+          <input type="checkbox" id="side-nav-btn" />
+          <div class="side-bar-navigation">
+            <ul class="navigation">
+              <li><a href="" class="text-primary">Support</a></li>
+              <li><a href="" class="text-primary">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- Question Body -->
+  <section class="choose-body-fat-section text-primary custom-spacing">
+    <div class="body-content">
+      <div class="heading text-primary"> Let's create your account </div>
+      <form action="/NameRoute" method="POST" id="submit-form">
+        <div class="input-field">
+          <label>What should we call you?</label>
+          <input type="hidden" name="userId" id="userId" /> <!-- Hidden input for user_id -->
+          <input type="text" placeholder="Name" name="Name" id="User _Name"/>
+        </div>
+        <div class="text-right">
+          <button class="theme-btn text-primary" title="Continue" id="contBtn" disabled> Continue
+            <div class="right-arrow"></div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Get user_id from URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user_id');
+    document.getElementById('userId').value = userId; // Set the hidden input value
+
+console.log(userId)
+    
+    const inputEl = document.getElementById('User _Name');
+    const contBtn = document.getElementById('contBtn');
+    inputEl.addEventListener('input', () => {
+      contBtn.disabled = inputEl.value === ""; // Enable button if input is not empty
+    });
+  </script>
+</body>
+</html>

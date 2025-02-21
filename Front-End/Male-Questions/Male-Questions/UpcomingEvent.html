@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MagicPill</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-logo">  <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+            AetherFit
+          </a>
+            <div class="nav-language">
+                <button class="btn-lang btn-link text-primary d-none"> English </button>
+                <div class="btn-nav btn-link">
+                    <input type="checkbox" id="side-nav-btn" />
+                    <div class="side-bar-navigation">
+                        <ul class="navigation">
+                            <li> <a href="" class="text-primary">Support</a> </li>
+                            <li> <a href="" class="text-primary">About Us</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Question Body -->
+    <section class="choose-body-fat-section text-primary custom-spacing">
+        <div class="body-content">
+            <div class="heading text-primary mb-20"> Is your goal related to an upcoming event? </div>
+            <form action="/UpcomingEvent" method="POST" id="goal-form">
+                <input type="hidden" id="userId" name="userId" value="" />
+                <input type="hidden" id="choice" name="choice" value="" />
+
+                <div class="single-select-items">
+                    <div class="item">
+                        <input type="radio" value="Y" name="select" id="control_01" class="goingToYesOption" />
+                        <label class="d-flex align-center p-5" for="control_01">
+                            <div> <span class="fs-20 fw-bold"> Yes </span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <div>
+                            <input type="radio" value="N" name="select" id="control_02" class="goingToNoOption"/>
+                            <label class="d-flex align-center p-5" for="control_02">
+                                <div> <span class="fs-20 fw-bold"> No </span>
+                                </div>                            
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="theme-btn text-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Frontend JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userIdInput = document.getElementById('userId');
+            const form = document.getElementById('goal-form');
+
+            // Get userId from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('user_Id');
+
+            // If userId exists, set it to the hidden input
+            if (userId) {
+                userIdInput.value = userId;
+            } else {
+                alert('User ID is missing in the URL parameters!');
+                return; // Stop further execution if userId is missing
+            }
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                // Get the selected choice
+                const selectedChoice = document.querySelector('input[name="select"]:checked');
+                if (!selectedChoice) {
+                    alert('Please select Yes or No');
+                    return;
+                }
+
+                // Set the choice value in the hidden input
+                document.getElementById('choice').value = selectedChoice.value;
+
+                // Submit the form
+                form.submit();
+            });
+        });
+    </script>
+</body>
+</html>

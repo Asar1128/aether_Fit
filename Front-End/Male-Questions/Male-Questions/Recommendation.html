@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Page</title>
+    <link rel="stylesheet" href="../../Styles/Styles.css">
+    <link rel="stylesheet" href="../../Styles/Recommendation.css">
+  
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="loading-container" id="loadingScreen">
+      <svg class="progress-circle" width="120" height="120" viewBox="0 0 100 100">
+          <circle class="background" cx="50" cy="50" r="45"></circle>
+          <circle class="progress" cx="50" cy="50" r="45"></circle>
+          <text x="50" y="50" id="progress-text">0%</text>
+      </svg>
+      <p class="loading-text">AI Generating Your Recommendations...</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container" id="contentContainer">
+    <h1>Welcome to the Recommendation Page</h1>
+    <p class="status loading">Loading user data...</p>
+
+    <div class="section">
+        <h2>AI Recommendations</h2>
+        <p id="aiRecommendations"></p>
+    </div>
+
+    <div class="section">
+        <h2>Exercise Recommendations</h2>
+        <ul id="exerciseList"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Product Recommendations</h2>
+        <ul id="productList"></ul>
+    </div>
+  </div>
+
+<script src="../../Scripts/Reccomendations.js"></script>
+</body>
+</html>

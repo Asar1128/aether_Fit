@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MagicPill</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-logo">   <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+    AetherFit
+  </a>
+    <div class="nav-language">
+      <button class="btn-lang btn-link text-primary d-none"> English </button>
+      <div class="btn-nav btn-link">
+        <input type="checkbox" id="side-nav-btn" />
+        <div class="side-bar-navigation" >
+          <ul class="navigation">
+            <li> <a href="" class="text-primary" >Support</a> </li>
+            <li> <a href="" class="text-primary" >About Us</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+<!-- End Header --> 
+<!-- Question Body -->
+<section class="choose-body-fat-section text-primary custom-spacing">
+  <div class="body-content" >
+    <div class="heading text-primary mb-20"> Tick your additional goals </div>
+    <div class="multi-select-items">
+      <div class="item">
+        <input type="checkbox" value="1" name="select" id="control_01" onchange="checkmark()"/>
+        <label class="d-flex align-center" for="control_01">
+        <div > <span class="fs-20 fw-bold"> Improve sleep </span> </div>
+        <div class="goal-img-frame"> <img src="./img/1.webp" /> </div>
+        </label>
+      </div>
+      <div class="item">
+        <input type="checkbox" value="2" name="select" id="control_02" onchange="checkmark()" />
+        <label class="d-flex align-center" for="control_02">
+        <div > <span class="fs-20 fw-bold"> Grow muscles </span> </div>
+        <div class="goal-img-frame"> <img src="./img/1.webp" /> </div>
+        </label>
+      </div>
+      <div class="item">
+        <input type="checkbox" value="3" name="select" id="control_03"  onchange="checkmark()" />
+        <label class="d-flex align-center" for="control_03">
+        <div > <span class="fs-20 fw-bold"> Feel healthier </span> </div>
+        <div class="goal-img-frame"> <img src="./img/1.webp" /> </div>
+        </label>
+      </div>      
+    </div>
+    <div class="text-right continue-btn">
+      <button class="theme-btn  text-primary" title="Continue" disabled onclick="continueBtn()"> Continue
+      <div class="right-arrow"></div>
+      </button>
+    </div>
+  </div>
+</section>
+<script>
+    
+function checkmark(){
+const checkBox1  = document.getElementById('control_01')
+const checkBox2 = document.getElementById("control_02")
+const checkBox3 = document.getElementById ("control_03")
+const button = document.querySelector('.theme-btn')
+
+button.disabled = !(checkBox1.checked ||checkBox2.checked || checkBox3.checked)
+
+
+
+}
+
+function continueBtn(){
+    window.location.href = "quiz11to12.html"
+}
+
+const goBAck = document.querySelector('.left-arrow').addEventListener('click',function(){
+    window.location.href = 'quiz9withLb.html'
+})
+</script>
+<!-- Question Body -->
+</body>
+</html>

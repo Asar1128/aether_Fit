@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculate BMI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-logo">  <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+            AetherFit
+          </a>
+      <div class="nav-language">
+        <button class="btn-lang btn-link text-primary d-none"> English </button>
+        <div class="btn-nav btn-link">
+          <input type="checkbox" id="side-nav-btn" />
+          <div class="side-bar-navigation" >
+            <ul class="navigation">
+              <li> <a href="" class="text-primary" >Support</a> </li>
+              <li> <a href="" class="text-primary" >About Us</a> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End Header --> 
+  
+  <!-- BMI Calculation Section -->
+  <section class="bmi-section text-primary custom-spacing">
+    <div class="body-content">
+      <div class="heading text-primary"> Click the Button to See Your Recommendations </div>
+      
+      <form action="/BMI" method="POST">
+        <input type="hidden" id="userId" name="userId" value="" />
+
+        <div class="text-right">
+          <button class="theme-btn text-primary" title="Calculate BMI" type="submit" id="calculate-btn">Recommendations</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const urlParam = new URLSearchParams(window.location.search)
+    const userId = urlParam.get('user_Id')
+    document.getElementById('userId').value = userId
+    console.log(userId)
+  </script>
+</body>
+</html>

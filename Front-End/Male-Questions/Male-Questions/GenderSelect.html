@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1</title>
+    <link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+    <header class="transparent-unfixed">
+        <div class="nav-logo">
+            <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+                AetherFit
+              </a>
+            <div class="nav-language">
+                <button class="btn-lang btn-link text-primary d-none"> English </button>
+                <div class="btn-nav btn-link">
+                    <input type="checkbox" id="side-nav-btn" />
+                    <div class="side-bar-navigation">
+                        <ul class="navigation">
+                            <li><a href="" class="text-primary">Support</a></li>
+                            <li><a href="" class="text-primary">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header --> 
+    <!-- Question Body -->
+    <section class="step-goal grid-background">
+        <div class="step-goal-gradient">
+            <div class="step-goal-content text-primary step-goal-content-updated">
+                <div class="container3 mx-auto d-flex">
+                    <div class="left-content">
+                        <div>
+                            <h1 class="heading-1"> Take Control of Your Weight Today </h1>
+                            <p>Supercharge your metabolism</p>
+                            <p>Reduce your appetite</p>
+                            <p>MagicPill is an all-natural dietary supplement to help you achieve weight loss goals.</p>
+                        </div>
+                    </div>
+                    <div class="terms-condition">
+                        <div class="checkbox-content mb-20 fs-12 color2">
+                            <input type="checkbox" value="3" id="control_04" class="input-check" />
+                            <label for="control_04">
+                                By continuing, I agree with 
+                                <a href="terms.html" class="color2">Terms of service</a>, 
+                                <a href="privacy.html" class="color2">Privacy policy</a>, 
+                                <a href="privacy.html" class="color2">Refund policy</a>, 
+                                <a href="privacy.html" class="color2">Subscription Terms</a>, 
+                                <a href="privacy.html" class="color2">Cookie policy</a>
+                            </label>
+                        </div>
+                        <div class="alert-box mb-20 error-message" style="display: none;">
+                            <div class="info-icon white me-10"></div>
+                            To continue, please accept our terms and policies
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <div class="heading">Select Your Gender</div>
+                        <form action="/GenderSelectRoute" method="POST" id="gender-form">
+                          <input type="hidden" id="userId" name="userId" value="" />
+        
+                          <!-- Hidden input for gender -->
+                          <input type="hidden" id="gender" name="gender" value="" />
+                            <div class="single-select-items">
+                                <div class="item">
+                                    <input type="radio" value="1" name="select" id="control_01" class="male-input" />
+                                    <label class="d-flex align-center" for="control_01">
+                                        <div><span class="fs-20 fw-bold"> Male </span></div>
+                                        <div class="goal-img-frame"><img src="../../img/boy.png" /></div>
+                                    </label>
+                                </div>
+                                <div class="item">
+                                    <input type="radio" value="2" name="select" id="control_02" class="female-input" />
+                                    <label class="d-flex align-center" for="control_02">
+                                        <div><span class="fs-20 fw-bold"> Female </span></div>
+                                        <div class="goal-img-frame"><img src="../../img/girl.png" style="margin-top: 1rem;"/></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="theme-btn text-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- Question Body -->
+      <script src="../../Scripts/GenderSelect.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+      </body>
+</html>

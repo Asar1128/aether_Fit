@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MagicPill</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-logo">  <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+    AetherFit
+  </a>
+    <div class="nav-language">
+      <button class="btn-lang btn-link text-primary d-none"> English </button>
+      <div class="btn-nav btn-link">
+        <input type="checkbox" id="side-nav-btn" />
+        <div class="side-bar-navigation" >
+          <ul class="navigation">
+            <li> <a href="" class="text-primary" >Support</a> </li>
+            <li> <a href="" class="text-primary" >About Us</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header --> 
+<!-- Question Body -->
+<section class="choose-body-fat-section text-primary custom-spacing">
+  <div class="body-content" >
+    <div class="heading text-primary"> What's your current and target Weight? </div>
+    <div class="height-unit"> <span>Units</span>
+      <div class="height-unit-btn">
+        <button class="active" id="main-btn"> lb </button>
+        <button id="main1-btn"> kg </button>
+      </div>
+    </div>
+    <!-- form -->
+     <form action="/WeightRoute" method="POST">
+      <div class="input-field">
+        <input type="hidden" id="userId" name="userId" value="" />
+        <label class="change1">Current Weight (lb)</label>
+        <input type="number" placeholder="__lbs" name="weightInLB" id="lb1-Input" oninput="handle1input()" />
+      </div>
+      <div class="input-field pt-20">
+        <label class="change2">Target Weight (lb)</label>
+        <input type="number" placeholder="__lbs" name="weight" id="lb2-Input" oninput="handle2input()" />
+      </div>
+      <div class="text-right continue-btn">
+        <button class="theme-btn  text-primary" title="Continue" id="continue-btn" type="submit"> Continue
+        <div class="right-arrow"></div>
+        </button>
+      </div>
+     </form>
+  </div>
+</section>
+<script src="../../Scripts/WeightInKg.js"></script>
+<script>
+  const urlParam = new URLSearchParams(window.location.search)
+  const userId = urlParam.get('user_Id')
+  document.getElementById('userId').value = userId
+  console.log(userId)
+</script>
+<!-- Question Body -->
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MagicPill</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-logo"> 
+    <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+      AetherFit
+    </a>
+    <div class="nav-language">
+      <button class="btn-lang btn-link text-primary d-none">English</button>
+      <div class="btn-nav btn-link">
+        <input type="checkbox" id="side-nav-btn" />
+        <div class="side-bar-navigation">
+          <ul class="navigation">
+            <li><a href="" class="text-primary">Support</a></li>
+            <li><a href="" class="text-primary">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header -->
+
+<!-- Question Body -->
+<section class="choose-body-fat-section text-primary custom-spacing">
+  <div class="body-content">
+    <div class="heading text-primary mb-20">How would you rate your overall physical health?</div>
+    <!-- Form -->
+    <form action="/HealthRatingRoute" method="POST" id="Health-Rating-Form">
+      <input type="hidden" id="userId" name="userId" value="" />
+      <input type="hidden" id="choice" name="choice" value="" />
+
+      <div class="multi-select-items">
+        <div class="item">
+          <input type="radio" value="1" name="select" id="control_01" class="healthRatingOption" />
+          <label class="d-flex align-center p-5" for="control_01">
+            <div><span class="fs-18 fw-bold">Poor</span></div>
+          </label>
+        </div>
+        <div class="item">
+          <input type="radio" value="2" name="select" id="control_02" class="healthRatingOption" />
+          <label class="d-flex align-center p-5" for="control_02">
+            <div><span class="fs-18 fw-bold">Could be better</span></div>
+          </label>
+        </div>
+        <div class="item">
+          <input type="radio" value="3" name="select" id="control_03" class="healthRatingOption" />
+          <label class="d-flex align-center p-5" for="control_03">
+            <div><span class="fs-18 fw-bold">Average</span></div>
+          </label>
+        </div>
+        <div class="item">
+          <input type="radio" value="4" name="select" id="control_04" class="healthRatingOption" />
+          <label class="d-flex align-center p-5" for="control_04">
+            <div><span class="fs-18 fw-bold">Pretty good</span></div>
+          </label>
+        </div>
+        <div class="item">
+          <input type="radio" value="5" name="select" id="control_05" class="healthRatingOption" />
+          <label class="d-flex align-center p-5" for="control_05">
+            <div><span class="fs-18 fw-bold">Olympic athlete</span></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="submit-section mt-20">
+        <button type="submit" class="btn btn-primary theme-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Get userId from URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const userId = urlParams.get('user_Id');
+
+if (!userId) {
+  alert('User ID is missing in the URL parameters!');
+} else {
+  document.getElementById('userId').value = userId;
+  console.log('User ID:', userId);
+}
+
+
+
+document.querySelectorAll('.healthRatingOption').forEach(option => {
+  option.addEventListener('change', function() {
+    const choice = this.nextElementSibling.textContent.trim();  // Get the label text (rating description)
+    document.getElementById('choice').value = choice;
+  });
+});
+
+// Log form data before submission
+document.getElementById('Health-Rating-Form').addEventListener('submit', event => {
+  const formData = new FormData(event.target);
+  console.log('Form data before submission:', Object.fromEntries(formData.entries()));
+});
+
+</script>
+</body>
+</html>

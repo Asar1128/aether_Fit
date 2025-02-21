@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MagicPill</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-logo">  <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+    AetherFit
+  </a>
+    <div class="nav-language">
+      <button class="btn-lang btn-link text-primary d-none"> English </button>
+      <div class="btn-nav btn-link">
+        <input type="checkbox" id="side-nav-btn" />
+        <div class="side-bar-navigation" >
+          <ul class="navigation">
+            <li> <a href="" class="text-primary" >Support</a> </li>
+            <li> <a href="" class="text-primary" >About Us</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</header>
+<!-- End Header --> 
+<!-- Question Body -->
+<section class="choose-body-fat-section text-primary custom-spacing">
+  <div class="body-content" >
+    <div class="heading text-primary mb-20"> Choose your body type </div>
+    <p class="mb-20">Choose the one that is most similar to yours now. There are no good or bad body types.</p>
+<!-- form -->
+<div class="single-select-items">
+ <form action="/BodyTypeRoute" method="POST" id="Body-Type-Select">
+  <input type="hidden" id="userId" name="userId" value="" />
+  <input type="hidden" id="choice" name="choice" value="" />
+    <div class="item">
+      <input type="radio" value="Ectomorph" name="select" id="control_01" class="bodyTypeOption"/>
+      <label class="d-flex align-center" for="control_01">
+      <div > <span class="fs-20 fw-bold"> Ectomorph </span>
+        <p class="fs-13"> Little body fat and muscle. Have a hard time gaining weight. </p>
+      </div>
+      <div class="goal-img-frame"> <img src="../../img/ecto.png" style="width: 150px; margin-top: 20px;" /> </div>
+      </label>
+    </div>
+    <div class="item">
+      <div>
+        <input type="radio" value="Mesomorph" name="select" id="control_02" class="bodyTypeOption" />
+        <label class="d-flex align-center" for="control_02">
+        <div > <span class="fs-20 fw-bold"> Mesomorph </span>
+          <p class="fs-13"> Loses body fat easily and gains muscle quickly. </p>
+        </div>
+        <div class="goal-img-frame"> <img src="../../img/meso-removebg-preview.png" style="width: 150px;" /> </div>
+        </label>
+      </div>
+      <div>
+        <input type="radio" value="Endomorph" name="select" id="control_03" class="bodyTypeOption" />
+        <label class="d-flex align-center" for="control_03">
+        <div > <span class="fs-20 fw-bold"> Endomorph </span>
+          <p class="fs-13"> Gains weight easily compared to other body types. </p>
+        </div>
+        <div class="goal-img-frame"> <img src="../../img/endo.png" style="width: 150px;"/> </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="submit-section mt-20">
+      <button type="submit" class="btn btn-primary theme-btn">Submit</button>
+    </div>
+  </form>
+</div>
+    <div class="info mt-30 mb-30">
+      <div class="d-flex align-center mb-30"> <span class="fw-bold fs-18">Test to determine your body type </span> <img src="../../img/determine-body-type.svg" class="ms-auto" /> </div>
+      <p class="lh-1">Grip your opposite wrist using the thumb and an index finger. If you’re right-handed, use your right hand to grab your left wrist.</p>
+      <div class="fw-bold mb-5">Thumb and index finger:</div>
+      <div class=" mb-5"> <span class="fw-bold">Ectomorph</span> <span> — wrapping around with ease.</span> </div>
+      <div class=" mb-5"> <span class="fw-bold">Mesomorph</span> <span> — touching each other. </span> </div>
+      <div class=" mb-5"> <span class="fw-bold">Endomorph</span> <span> — doesn’t come into contact.</span> </div>
+    </div>    
+  </div>
+</section>
+
+<!-- Frontend JavaScript -->
+<script>
+
+  const urlParams  = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('user_Id');
+
+  if (!userId) {
+    alert('User ID is missing in the URL parameters!');
+  } else {
+    document.getElementById('userId').value = userId;
+    console.log(userId)
+  }
+
+  const bodyTypeOptions = document.querySelectorAll('.bodyTypeOption');
+
+  bodyTypeOptions.forEach(option => {
+    option.addEventListener('change', function() {
+      const choice = this.value;
+
+      document.getElementById('choice').value = choice;
+    });
+  });
+</script>
+</body>
+</html>

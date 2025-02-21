@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MagicPill</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-logo">   <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+    AetherFit
+  </a>
+    <div class="nav-language">
+      <button class="btn-lang btn-link text-primary d-none"> English </button>
+      <div class="btn-nav btn-link">
+        <input type="checkbox" id="side-nav-btn" />
+        <div class="side-bar-navigation" >
+          <ul class="navigation">
+            <li> <a href="" class="text-primary" >Support</a> </li>
+            <li> <a href="" class="text-primary" >About Us</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header --> 
+<!-- Question Body -->
+<section class="choose-body-fat-section text-primary custom-spacing">
+  <div class="body-content" >    
+    <div class="heading text-primary"> Great! </div>
+    <div class="input-field">
+      <label>What date is your event?</label>
+      <input type="number" placeholder="MM / DD / YYYY" name="date" id="dateInput" onfocus="(this.type='date')" oninput="checkDate()" />
+      <span class="color6" id="Dipaly-none">Date must be in the future</span>
+    </div>
+    <div class="text-right">
+      <button class="theme-btn  text-primary" title="Continue" id="continue-btn"> Continue
+      <div class="right-arrow"></div>
+      </button>
+    </div>
+  </div>
+</section>
+<script>
+
+
+function checkDate() {
+    const gettingDate = document.getElementById('dateInput').value;
+    const errorMessage = document.getElementById('Dipaly-none');
+    const  continueBtn = document.getElementById('continue-btn')
+ 
+    console.log('Entered Date:', gettingDate);
+    
+    const selectedDate = new Date(gettingDate);
+    console.log('Selected Date:', selectedDate);
+    
+    const currentDate = new Date();
+    console.log('Current Date:', currentDate);
+    
+    if (selectedDate > currentDate) {
+        errorMessage.style.display = 'none';
+        continueBtn.addEventListener('click' , function(){
+            window.location.href = 'quiz4NoOption.html'
+        })
+    } else {
+        errorMessage.style.display = 'block';
+    }
+}
+</script>
+<!-- Question Body -->
+</body>
+</html>

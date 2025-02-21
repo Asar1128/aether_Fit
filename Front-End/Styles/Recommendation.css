@@ -1,0 +1,91 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+h1 {
+    text-align: center;
+    color: #2980b9;
+    font-size: 2.5rem;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: none; /* Hide until progress bar completes */
+}
+.section {
+    background-color: #fff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.section h2 {
+    color: #2980b9;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    background-color: #ecf0f1;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+li:hover {
+    background-color: #bdc3c7;
+}
+.status {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.status.loading {
+    color: #f39c12;
+}
+.status.success {
+    color: #2ecc71;
+}
+.status.error {
+    color: #e74c3c;
+}
+/* Progress Bar Styles */
+.loading-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+/* .progress-circle {
+    transform: rotate(-90deg);
+} */
+circle {
+    fill: none;
+    stroke-width: 8;
+}
+.background {
+    stroke: #ecf0f1;
+}
+.progress {
+    stroke: #2980b9;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 0.3s ease;
+}
+text {
+    font-size: 16px;
+    font-weight: bold;
+    fill: #2980b9;
+    text-anchor: middle;
+    dominant-baseline: central;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MagicPill</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-logo">  <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+      AetherFit
+    </a>
+      <div class="nav-language">
+        <button class="btn-lang btn-link text-primary d-none"> English </button>
+        <div class="btn-nav btn-link">
+          <input type="checkbox" id="side-nav-btn" />
+          <div class="side-bar-navigation">
+            <ul class="navigation">
+              <li> <a href="" class="text-primary">Support</a> </li>
+              <li> <a href="" class="text-primary">About Us</a> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- Question Body -->
+  <section class="choose-body-fat-section text-primary custom-spacing">
+    <div class="body-content">
+      <div class="heading text-primary mb-20"> Do you experience any of these symptoms? </div>
+      <form id="symptomForm" action="/symptomsRoute" method="POST">
+        <input type="hidden" id="userId" name="userId" value="" />
+        
+        <!-- Symptoms Options -->
+        <div class="multi-select-items">
+          <div class="item">
+            <input type="checkbox" value="2" name="select[]" id="control_02" />
+            <label class="d-flex align-center" for="control_02">
+              <div><span class="fs-20 fw-bold"> Heartburn </span></div>
+              <div class="goal-img-frame"> <img src="../../img/SLIM_BODY.webp" /> </div>
+            </label>
+          </div>
+          <div class="item">
+            <input type="checkbox" value="3" name="select[]" id="control_03" />
+            <label class="d-flex align-center" for="control_03">
+              <div><span class="fs-20 fw-bold"> Blood sugar fluctuations </span></div>
+              <div class="goal-img-frame"> <img src="../../img/SLIM_BODY.webp" /> </div>
+            </label>
+          </div>
+          <div class="item">
+            <input type="checkbox" value="6" name="select[]" id="control_06" />
+            <label class="d-flex align-center" for="control_06">
+              <div><span class="fs-20 fw-bold"> Fatigue </span></div>
+              <div class="goal-img-frame"> <img src="../../img/SLIM_BODY.webp" /> </div>
+            </label>
+          </div> 
+          <div class="item">
+            <input type="checkbox" value="7" name="select[]" id="control_07" />
+            <label class="d-flex align-center" for="control_07">
+              <div><span class="fs-20 fw-bold"> Stomach pain </span></div>
+              <div class="goal-img-frame"> <img src="../../img/SLIM_BODY.webp" /> </div>
+            </label>
+          </div>
+          <hr class="fallback">
+          <div class="item fallback">
+            <input type="checkbox" value="9" name="select[]" id="control_09" class="d-none"/>
+            <label class="d-flex align-center" for="control_09">
+              <div><span class="fs-20 fw-bold d-flex"><span class="close-icon fallback me-10"></span> None of the above </span></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-right continue-btn">
+          <button class="theme-btn text-primary" title="Continue" type="submit">Continue
+            <div class="right-arrow"></div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Get userId from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user_Id');
+
+    if (!userId) {
+      alert('User ID is missing in the URL parameters!');
+    } else {
+      // Assign userId to hidden input field
+      document.getElementById('userId').value = userId;
+      console.log('User ID:', userId);
+    }
+
+    // Event listener for 'None of the above' checkbox
+    document.getElementById("control_09").addEventListener('click', function() {
+      window.location.href = "AdditionalGoals.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MagicPill</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../../Styles/Styles.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+  <div class="nav-logo">
+    <a href="index.html" aria-label="" style="text-decoration: none; color:Black; font-size:2rem;">
+      AetherFit
+    </a>
+    <div class="nav-language">
+      <button class="btn-lang btn-link text-primary d-none"> English </button>
+      <div class="btn-nav btn-link">
+        <input type="checkbox" id="side-nav-btn" />
+        <div class="side-bar-navigation" >
+          <ul class="navigation">
+            <li> <a href="" class="text-primary">Support</a> </li>
+            <li> <a href="" class="text-primary">About Us</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Header -->
+
+<!-- Question Body -->
+<section class="choose-body-fat-section text-primary custom-spacing">
+  <div class="body-content">
+    <div class="heading text-primary">What's your Height?</div>
+    <div class="height-unit">
+      <span>Units</span>
+      <div class="height-unit-btn">
+        <!-- Only cm button now -->
+        <button class="active" id="main1-btn">cm</button>
+      </div>
+    </div>
+    
+    <!-- Form -->
+    <form action="/HeightRoute" method="POST">
+      <div class="input-field">
+        <label id="height-label">Height</label>
+        <!-- Only cm input field shown -->
+        <div id="height-input-cm">
+          <input type="number" id="centimeters" placeholder="cm" name="height" min="0" required />
+        </div>
+        <input type="hidden" id="userId" name="userId" value="" />
+      </div>
+     
+      <div class="text-right">
+        <button class="theme-btn text-primary" title="Continue" type="submit" id="continue-btn">Continue</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script src="../../Scripts/HeightInFeet.js"></script>
+<script>
+  const urlParam = new URLSearchParams(window.location.search)
+  const userId = urlParam.get('user_Id')
+  document.getElementById('userId').value = userId
+  console.log(userId)
+</script>
+</body>
+</html>
